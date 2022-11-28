@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const { responseAuto } = require('./middleware/response.middleware');
+const cors = require('cors')
 const initModels = require('./models/initModels');
 const routes = require('./routes');
 const { db } = require('./utils/database');
@@ -9,6 +9,7 @@ require('dotenv').config()
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 app.use(morgan('dev'))
 app.use('/api/v1',routes)
 
