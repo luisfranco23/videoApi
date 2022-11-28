@@ -31,7 +31,7 @@ module.exports = {
             const result = await users.newUser(req.body)
             res.status(201).json({ message: "User created successfully", result })
         } catch (error) {
-            res.status(400).json({ message: error.message })
+            res.status(400).json({ message: 'Missing data',error: error.message })
         }
     },
     editUser: async (req, res, next) => {
